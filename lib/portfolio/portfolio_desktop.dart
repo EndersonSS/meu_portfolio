@@ -85,7 +85,7 @@ class _PortfolioDesktopState extends State<PortfolioDesktop> {
                       ),
                       Wrap(
                         spacing: 10,
-                        runSpacing: 5.0,ss
+                        runSpacing: 5.0,
                         children: project.skills!
                             .map((s) => Chip(
                                 backgroundColor: Colors.blue,

@@ -190,7 +190,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(5.0),
                       side: const BorderSide(color: kPrimaryColor)),
-                  onPressed: () {},
+                  onPressed: () {
+                    print('aqui curriculo');
+                  },
                   child: ListTile(
                     leading: const Icon(
                       Icons.book,
