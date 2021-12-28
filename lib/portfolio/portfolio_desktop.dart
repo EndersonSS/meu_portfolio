@@ -63,7 +63,7 @@ class _PortfolioDesktopState extends State<PortfolioDesktop> {
                       ),
                       Text(project.name!,
                           style: TextStyle(
-                            fontSize: height * 0.022,
+                            fontSize: height * 0.025,
                             fontWeight: FontWeight.w400,
                             color: _themeProvider.lightTheme
                                 ? Colors.black

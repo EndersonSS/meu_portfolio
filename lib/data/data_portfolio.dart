@@ -63,7 +63,7 @@ List<DataProjeto> PROJECTS = [
       'Flutter',
       'Git',
       'Provider',
-      'Reursos nativo da plataforma android para armazenamento de imagens em cache',
+      'Reursos nativo da plataforma android',
     ],
   ),
 ];

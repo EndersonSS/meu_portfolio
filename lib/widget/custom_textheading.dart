@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart'; 
+import 'package:flutter/material.dart';
 import 'package:meu_portfolio/provider/theme_provider.dart';
 import 'package:meu_portfolio/widget/adaptive_text.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +14,7 @@ class CustomSectionHeading extends StatelessWidget {
     return AdaptiveText(
       text,
       style: TextStyle(
-        fontSize: MediaQuery.of(context).size.height * 0.075,
+        fontSize: MediaQuery.of(context).size.height * 0.070,
         fontWeight: FontWeight.w100,
         letterSpacing: 1.0,
         color: _themeProvider.lightTheme ? Colors.black : Colors.white,

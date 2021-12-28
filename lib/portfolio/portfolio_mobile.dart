@@ -46,21 +46,21 @@ class _PortfolioMobileState extends State<PortfolioMobile> {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.width * .3,
-                  child: Image.asset(project.image!),
-                ),
                 SizedBox(width: MediaQuery.of(context).size.width * .075),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       SizedBox(
+                        height: MediaQuery.of(context).size.width * .7,
+                        child: Image.network(project.image!),
+                      ),
+                      SizedBox(
                         height: MediaQuery.of(context).size.width * .01,
                       ),
                       Text(project.name!,
                           style: TextStyle(
-                            fontSize: height * 0.022,
+                            fontSize: height * 0.025,
                             fontWeight: FontWeight.w400,
                             color: _themeProvider.lightTheme
                                 ? Colors.black
@@ -81,7 +81,7 @@ class _PortfolioMobileState extends State<PortfolioMobile> {
                         height: MediaQuery.of(context).size.width * .025,
                       ),
                       Wrap(
-                        spacing: 10,
+                        spacing: 10, 
                         runSpacing: 5.0,
                         children: project.skills!
                             .map((s) => Chip(
