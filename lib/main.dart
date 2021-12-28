@@ -1,52 +1,53 @@
 import 'package:flutter/material.dart';
+import 'package:meu_portfolio/home_screen.dart';
+import 'package:meu_portfolio/provider/theme_styles.dart';
+import 'package:provider/provider.dart';
+import 'package:url_strategy/url_strategy.dart';
+
+import 'provider/theme_provider.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  setPathUrlStrategy();
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final ThemeProvider _themeProvider = ThemeProvider();
+
+  void getCurrentAppTheme() async {
+    _themeProvider.lightTheme = await _themeProvider.darkThemePref.getTheme();
   }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+  void initState() {
+    getCurrentAppTheme();
+    super.initState();
+  }
 
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => ThemeProvider()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Portfólio | Enderson Serra',
+        theme: ThemeStyles.themeData(_themeProvider.lightTheme, context),
+        initialRoute: "/",
+        routes: {
+          "/": (context) => const HomeScreen(),
+          // "/workTogether": (context) => GetInTouch(),
+          // "/details": (context) => ServiceDetails()
+        },
       ),
     );
   }
